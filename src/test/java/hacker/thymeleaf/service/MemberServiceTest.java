@@ -11,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class MemberServiceTest {
 
-    MemberService memberService;
+    hacker.thymeleaf.service.MemberService memberService;
     MemoryMemberRepository memberRepository;
 
     @BeforeEach
     public void beforeEach() {
         memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService(memberRepository);
+        memberService = new hacker.thymeleaf.service.MemberService(memberRepository);
     }
 
     @AfterEach
@@ -32,7 +32,7 @@ class MemberServiceTest {
         member.setName("hello");
 
         // when
-        Long saveId = memberService.join(member);
+        final Long saveId = memberService.join(member);
 
         // then 
         final Member findMember = memberService.findOne(saveId).get();

@@ -9,7 +9,7 @@ import java.util.Optional;
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    public MemberService(MemberRepository memberRepository) {
+    public MemberService(final MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
 
@@ -36,7 +36,7 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId) {
+    public Optional<Member> findOne(final Long memberId) {
         return memberRepository.findById(memberId);
     }
 
