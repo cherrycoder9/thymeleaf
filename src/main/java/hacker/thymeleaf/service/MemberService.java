@@ -2,10 +2,12 @@ package hacker.thymeleaf.service;
 
 import hacker.thymeleaf.domain.Member;
 import hacker.thymeleaf.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
+@Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
 
