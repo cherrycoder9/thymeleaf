@@ -1,9 +1,7 @@
 package hacker.thymeleaf;
 
-import hacker.thymeleaf.repository.JpaMemberRepository;
 import hacker.thymeleaf.repository.MemberRepository;
 import hacker.thymeleaf.service.MemberService;
-import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,21 +10,21 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class LeafConfig {
 
-    private final EntityManager em;
+    private final MemberRepository memberRepository;
 
     @Autowired
-    public LeafConfig(final EntityManager em) {
-        this.em = em;
+    public LeafConfig(final MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @Bean
     public MemberService memberService() {
-        return new MemberService(memberRepository());
+        return new MemberService(memberRepository);
     }
 
-    @Bean
-    public MemberRepository memberRepository() {
-        //        return new MemoryMemberRepository();
-        return new JpaMemberRepository(em);
-    }
+    //    @Bean
+    //    public MemberRepository memberRepository() {
+    //        //        return new MemoryMemberRepository();
+    //        return new JpaMemberRepository(em);
+    //    }
 }
