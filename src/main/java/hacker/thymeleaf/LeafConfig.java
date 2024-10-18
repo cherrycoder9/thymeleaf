@@ -22,6 +22,7 @@ public class LeafConfig {
         return new MemberService(memberRepository);
     }
 
+
     //    @Bean
     //    public MemberRepository memberRepository() {
     //        //        return new MemoryMemberRepository();
